@@ -1,8 +1,8 @@
 # asustor-apk-xray
 
-![Pi-hole](xray/CONTROL/icon.png)
+![Xray](xray/CONTROL/icon.png)
 
-Docker Pi-hole for Asustor
+Docker Xray for Asustor
 
 ## Links
 * Docker Xray [@dockerhub](https://hub.docker.com/r/teddysun/xray) [@github](https://github.com/teddysun/across)
