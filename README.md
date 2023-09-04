@@ -6,7 +6,7 @@ Docker Xray for Asustor (server)
 
 Download client
 - Android [v2rayNG](https://play.google.com/store/apps/details?id=com.v2ray.ang&hl=en_US)
-Refer : [Xray-core](https://github.com/XTLS/Xray-core)
+- Refer : [Xray-core](https://github.com/XTLS/Xray-core)
 
 ## Links
 * Docker Xray [@dockerhub](https://hub.docker.com/r/teddysun/xray) [@github](https://github.com/teddysun/across)
