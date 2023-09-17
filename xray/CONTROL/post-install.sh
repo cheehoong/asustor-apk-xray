@@ -20,8 +20,11 @@ case "$APKG_PKG_STATUS" in
 	install)
 		# post install script here
 		printf "post-install\n" >> $LOGGING
+		printf "docker compose start\n" >> $LOGGING
 		docker-compose up -d
+		printf "docker compose done\n" >> $LOGGING
 
+		printf "create config.json start\n" >> $LOGGING
 		cat > $XRAY_FOLDER/config.json <<EOF
     {
       "inbounds": [{
@@ -41,7 +44,7 @@ case "$APKG_PKG_STATUS" in
       }]
     }
     EOF
-
+		printf "create config.json done\n" >> $LOGGING
 		;;
 	upgrade)
 	  printf "pre-upgrade\n" >> $LOGGING
