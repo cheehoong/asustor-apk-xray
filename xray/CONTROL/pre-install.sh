@@ -28,4 +28,6 @@ case "$APKG_PKG_STATUS" in
 
 esac
 
+printf "pre-install end\n" >> $LOGGING
+
 exit 0

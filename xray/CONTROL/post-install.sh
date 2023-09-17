@@ -1,6 +1,6 @@
 #!/bin/sh
 
-WEB_PORT=9000
+printf "post start\n" >> $LOGGING
 APKG_PKG_DIR=/usr/local/AppCentral/xray-docker
 XRAY_FOLDER=/share/Docker/$APKG_PKG_NAME
 LOGGING=$XRAY_FOLDER/log.txt
@@ -55,5 +55,7 @@ case "$APKG_PKG_STATUS" in
 		;;
 
 esac
+
+printf "post-install end\n" >> $LOGGING
 
 exit 0
