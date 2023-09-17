@@ -2,7 +2,7 @@
 
 echo "start-stop"
 
-CONTAINER_NAME=pihole
+CONTAINER_NAME=xray-docker
  
 case "$1" in
     start)

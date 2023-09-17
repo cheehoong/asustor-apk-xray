@@ -1,43 +1,35 @@
 {
    "general":{
-      "package":"pihole-docker",
-      "name":"Pi-hole",
-      "version":"v5.14.2.r01",
-      "depends":[
-         "docker-ce(>=20.10.2.r2)"
-      ],
+      "package":"xray-docker",
+      "name":"Xray",
+      "version":"1.8.4.r01",
+      "depends":["docker-ce(>=20.10.2.r2)"],
       "conflicts":[],
-      "developer":"Pi-hole",
+      "developer":"teddysun",
       "maintainer":"cheehoong",
       "email":"lechho@gmail.com",
-      "website":"https://github.com/cheehoong/asustor-apk-pihole",
+      "website":"https://github.com/cheehoong/asustor-apk-xray",
       "architecture":"any",
       "firmware":"4.0.0"
-    },
-    "adm-desktop": {
-		"app": {
-			"port": 3001,
-			"protocol": "http",
-			"type": "custom",
-			"url": "/admin"
-		},
-		"privilege": {
-			"accessible": "administrators", 
-			"customizable": true 
-		} 
-                 
-    },
-    "register":{
-		"share-folder":[
-			{
-				"name":"Docker",
-				"description":"Data and files directory for Docker Apps"
-            }         	
-		],
-		"boot-priority":{
-			"start-order":60,
-			"stop-order":40
-		},
-        "port":["3001"]
-    }
+   },
+   "adm-desktop":{
+      "app":{
+         "type":"custom",
+		 "protocol":"http",
+         "port":9000,
+		 "url":"/"
+      },
+      "privilege":{
+         "accessible":"users",
+         "customizable":true
+      }
+   },
+   "register":{
+      "share-folder":[{
+         "name":"Docker",
+         "description":"Data and files directory for Docker Apps"
+         }
+      ],
+      "port":["9000"]
+   }
 }

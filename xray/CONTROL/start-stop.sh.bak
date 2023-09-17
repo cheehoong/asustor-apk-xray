@@ -10,21 +10,12 @@ case "$1" in
 		
 # Note: ServerIP should be replaced with your external ip.
 docker run -d \
-    --name pihole \
-    -p 53:53/tcp -p 53:53/udp \
-    -e TZ="Asia/Singapore" \
-    -v "$(pwd)/etc-pihole/:/etc/pihole/" \
-    -v "$(pwd)/etc-dnsmasq.d/:/etc/dnsmasq.d/" \
-    --dns=127.0.0.1 --dns=8.8.8.8 \
-    --restart=unless-stopped \
-    --hostname pi.hole \
-    -e VIRTUAL_HOST="192.168.31.10" \
-    -e ServerIP="192.168.31.20" \
-    -e WEB_PORT=3001\
-    -e WEBPASSWORD=qwerty1234\
-    pihole/pihole:latest
+        -p 9000:9000 \
+        --name xray \
+        --restart=always \
+        -v /share/Docker:/etc/xray teddysun/xray
 
-        sleep 6 
+        sleep 6
                         
         ;;
     stop)

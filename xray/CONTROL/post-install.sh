@@ -1,10 +1,10 @@
 #!/bin/sh
 
-WEBPASSWORD=pihole
-WEB_PORT=3001
-ServerIP=$AS_NAS_INET4_IP1
-PIHOLE_FOLDER=/share/Docker/$APKG_PKG_NAME
-LOGGING=$PIHOLE_FOLDER/log.txt
+WEB_PORT=9000
+APKG_PKG_DIR=/usr/local/AppCentral/xray-docker
+XRAY_FOLDER=/share/Docker/$APKG_PKG_NAME
+LOGGING=$XRAY_FOLDER/log.txt
+UUID=(curl -i https://www.uuidgenerator.net/api/version1)
 
 printf "IP1\n" >> $LOGGING
 printf "$AS_NAS_INET4_IP1\n" >> $LOGGING
@@ -13,19 +13,40 @@ printf "$AS_NAS_INET4_IP2\n" >> $LOGGING
 printf "ADDR_0\n" >> $LOGGING
 printf "$AS_NAS_INET4_ADDR_0\n" >> $LOGGING
 
-if [ ! -z $AS_NAS_INET4_IP1 ]; then
-	ServerIP=$AS_NAS_INET4_IP1
-else
-	ServerIP=$AS_NAS_INET4_IP2
-fi
+case "$APKG_PKG_STATUS" in
 
-cd /usr/local/AppCentral/pihole-docker/CONTROL/
+	install)
+		# post install script here
+		docker-compose up -d
 
-#sed -i 's/original/new/g' file.txt
-#sed -i 's/3001/'"$WEB_PORT"'/g' docker-compose.yml
-sed -i 's/192\.168\.1\.1/'"$ServerIP"'/g' docker-compose.yml
-sed -i 's/admin/'"$WEBPASSWORD"'/g' docker-compose.yml
+		cat > $XRAY_FOLDER/config.json <<EOF
+    {
+      "inbounds": [{
+        "port": 9000,
+        "protocol": "vmess",
+        "settings": {
+          "clients": [
+            {
+              "id": $UUID
+            }
+          ]
+        }
+      }],
+      "outbounds": [{
+        "protocol": "freedom",
+        "settings": {}
+      }]
+    }
+    EOF
 
-docker-compose up -d
+		;;
+	upgrade)
+		# post upgrade script here (restore data)
+		# cp -af $APKG_TEMP_DIR/* $APKG_PKG_DIR/etc/.
+		;;
+	*)
+		;;
+
+esac
 
 exit 0

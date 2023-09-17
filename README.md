@@ -5,7 +5,7 @@
 Docker Xray for Asustor (server)
 #
 ## [Project X](https://xtls.github.io/en/)
-Project X or ray-core is a superset of v2ray-core, with better overall performance and enhancements such as XTLS, and it'scompletelycompatible with v2ray-core functionality and configuration. Only one executable file, including ctl functionality, run is the default command.
+Project X or Xray-core is a superset of v2ray-core, with better overall performance and enhancements such as XTLS, and it'scompletelycompatible with v2ray-core functionality and configuration. Only one executable file, including ctl functionality, run is the default command.
 This website is mainly about building apk for V2Ray docker to run in Asustor.
 
 ## Features

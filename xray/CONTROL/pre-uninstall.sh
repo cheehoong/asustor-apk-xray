@@ -2,8 +2,8 @@
 
 echo "pre-uninstall"
 
-container=$(docker ps -a | grep pihole | awk '{print $1}')
-im=$(docker images | grep pihole | awk '{print $3}' )
+container=$(docker ps -a | grep xray | awk '{print $1}')
+im=$(docker images | grep xray | awk '{print $3}' )
 echo $container
 echo $im
 if [ -z $container ]; then 
