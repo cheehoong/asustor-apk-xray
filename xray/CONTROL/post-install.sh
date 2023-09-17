@@ -12,11 +12,14 @@ printf "IP2\n" >> $LOGGING
 printf "$AS_NAS_INET4_IP2\n" >> $LOGGING
 printf "ADDR_0\n" >> $LOGGING
 printf "$AS_NAS_INET4_ADDR_0\n" >> $LOGGING
+printf "UUID\n" >> $LOGGING
+printf "$UUID\n" >> $LOGGING
 
 case "$APKG_PKG_STATUS" in
 
 	install)
 		# post install script here
+		printf "post-install\n" >> $LOGGING
 		docker-compose up -d
 
 		cat > $XRAY_FOLDER/config.json <<EOF
@@ -41,6 +44,7 @@ case "$APKG_PKG_STATUS" in
 
 		;;
 	upgrade)
+	  printf "pre-upgrade\n" >> $LOGGING
 		# post upgrade script here (restore data)
 		# cp -af $APKG_TEMP_DIR/* $APKG_PKG_DIR/etc/.
 		;;
