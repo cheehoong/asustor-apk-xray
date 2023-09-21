@@ -13,15 +13,16 @@ UUID="$(curl $CURLARGS $RVMHTTP)"
 
 printf "UUID\n" >> $LOGGING
 printf "$UUID\n" >> $LOGGING
+printf "$UUID\n" >> $LOGGING
 printf "IP1\n" >> $LOGGING
 printf "$AS_NAS_INET4_IP1\n" >> $LOGGING
 printf "IP2\n" >> $LOGGING
 printf "$AS_NAS_INET4_IP2\n" >> $LOGGING
 printf "ADDR_0\n" >> $LOGGING
 printf "$AS_NAS_INET4_ADDR_0\n" >> $LOGGING
+printf "$APKG_PKG_STATUS\n" >> $LOGGING
 
 case "$APKG_PKG_STATUS" in
-
 	install)
 	  printf "Start install\n" >> $LOGGING
 		# post install script here
@@ -47,7 +48,6 @@ case "$APKG_PKG_STATUS" in
       }]
     }
     EOF
-
 		;;
 	upgrade)
 		# post upgrade script here (restore data)
