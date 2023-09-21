@@ -1,0 +1,3 @@
+sudo chmod +x apkg-tool_py3.py
+sudo python3 apkg-tools_py3.py create xray
+sudo chown ch xray-docker_1.8.4.r01_any.apk

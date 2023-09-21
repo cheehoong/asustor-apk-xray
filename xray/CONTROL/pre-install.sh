@@ -12,7 +12,7 @@ case "$APKG_PKG_STATUS" in
 
 	install)
 		# Make sure configuration directory exists
-		printf "install\n" >> $LOGGING
+		printf "pre-install\n" >> $LOGGING
 
 		# Make sure configuration directory exists
 		if [ ! -d "$XRAY_FOLDER" ]; then
@@ -21,11 +21,13 @@ case "$APKG_PKG_STATUS" in
 		;;
 	upgrade)
 		# pre upgrade script
-		printf "upgrade\n" >> $LOGGING
+		printf "pre-upgrade\n" >> $LOGGING
 		;;
 	*)
 		;;
 
 esac
+
+printf "pre-install end\n" >> $LOGGING
 
 exit 0

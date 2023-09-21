@@ -1,14 +1,10 @@
 #!/bin/sh
 
+WEB_PORT=9000
 APKG_PKG_DIR=/usr/local/AppCentral/xray-docker
 XRAY_FOLDER=/share/Docker/$APKG_PKG_NAME
 LOGGING=$XRAY_FOLDER/log.txt
-CURL='/usr/bin/curl'
-RVMHTTP="https://www.uuidgenerator.net/api/version1"
-CURLARGS="-i"
-
-# you can store the result in a variable
-UUID="$($CURL $CURLARGS $RVMHTTP)"
+UUID=(curl -i https://www.uuidgenerator.net/api/version1)
 
 printf "IP1\n" >> $LOGGING
 printf "$AS_NAS_INET4_IP1\n" >> $LOGGING
