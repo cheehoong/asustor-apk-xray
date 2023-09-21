@@ -13,7 +13,6 @@ UUID="$(curl $CURLARGS $RVMHTTP)"
 
 printf "UUID\n" >> $LOGGING
 printf "$UUID\n" >> $LOGGING
-printf "$UUID\n" >> $LOGGING
 printf "IP1\n" >> $LOGGING
 printf "$AS_NAS_INET4_IP1\n" >> $LOGGING
 printf "IP2\n" >> $LOGGING
@@ -29,7 +28,7 @@ case "$APKG_PKG_STATUS" in
 		docker-compose up -d
 
 		printf "Start cat\n" >> $LOGGING
-		cat > $XRAY_FOLDER/config.json <<EOF
+		cat > $XRAY_FOLDER/config.json <<EOF!!
     {
       "inbounds": [{
         "port": 9000,
@@ -47,7 +46,7 @@ case "$APKG_PKG_STATUS" in
         "settings": {}
       }]
     }
-    EOF
+    EOF!!
 		;;
 	upgrade)
 		# post upgrade script here (restore data)
