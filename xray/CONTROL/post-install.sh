@@ -25,8 +25,6 @@ case "$APKG_PKG_STATUS" in
 	install)
 	  printf "Start install\n" >> $LOGGING
 		# post install script here
-		docker-compose up -d
-
 		printf "Start cat\n" >> $LOGGING
 		cat > $XRAY_FOLDER/config.json <<EOF!!
     {
@@ -47,6 +45,7 @@ case "$APKG_PKG_STATUS" in
       }]
     }
     EOF!!
+ 		docker-compose up -d
 		;;
 	upgrade)
 		# post upgrade script here (restore data)
@@ -54,7 +53,6 @@ case "$APKG_PKG_STATUS" in
 		;;
 	*)
 		;;
-
 esac
     printf "End case\n" >> $LOGGING
 
