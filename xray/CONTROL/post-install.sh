@@ -6,7 +6,7 @@ XRAY_FOLDER=/share/Docker/$APKG_PKG_NAME
 LOGGING=$XRAY_FOLDER/log.txt
 #CURL='/usr/bin/curl'
 RVMHTTP="https://www.uuidgenerator.net/api/version1"
-CURLARGS="-i"
+CURLARGS="-s"
 
 # you can store the result in a variable
 UUID="$(curl $CURLARGS $RVMHTTP)"
