@@ -56,7 +56,7 @@ case "$APKG_PKG_STATUS" in
 	*)
 		;;
 
-    printf "End cat\n" >> $LOGGING
 esac
+    printf "End case\n" >> $LOGGING
 
 exit 0
