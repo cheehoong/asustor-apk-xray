@@ -26,7 +26,7 @@ case "$APKG_PKG_STATUS" in
 	  printf "Start install\n" >> $LOGGING
 		# post install script here
 		printf "Start cat\n" >> $LOGGING
-		cat > $XRAY_FOLDER/config.json <<'EOF'
+		cat > $XRAY_FOLDER/config.json <<EOF
     {
       "inbounds": [{'
         "port": 9000,
