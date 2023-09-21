@@ -26,9 +26,9 @@ case "$APKG_PKG_STATUS" in
 	  printf "Start install\n" >> $LOGGING
 		# post install script here
 		printf "Start cat\n" >> $LOGGING
-		cat > $XRAY_FOLDER/config.json <<EOF!!
+		cat > $XRAY_FOLDER/config.json <<'EOF'
     {
-      "inbounds": [{
+      "inbounds": [{'
         "port": 9000,
         "protocol": "vmess",
         "settings": {
@@ -44,7 +44,8 @@ case "$APKG_PKG_STATUS" in
         "settings": {}
       }]
     }
-    EOF!!
+EOF
+
  		docker-compose up -d
 		;;
 	upgrade)
