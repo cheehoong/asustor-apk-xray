@@ -6,7 +6,7 @@ LOGGING=$XRAY_FOLDER/log.txt
 echo "start-stop"
 
 printf "start\n" >> $LOGGING
-CONTAINER_NAME=Xray
+CONTAINER_NAME=Xray >> $LOGGING
 printf "Container running\n" >> $LOGGING
 printf "$1\n" >> $LOGGING
 
