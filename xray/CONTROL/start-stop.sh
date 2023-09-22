@@ -2,8 +2,11 @@
 
 echo "start-stop"
 
-CONTAINER_NAME=xray-docker
- 
+printf "start\n" >> $LOGGING
+CONTAINER_NAME=Xray
+printf "Container running\n" >> $LOGGING
+printf "$1\n" >> $LOGGING
+
 case "$1" in
     start)
         echo "Start $CONTAINER_NAME container..."
