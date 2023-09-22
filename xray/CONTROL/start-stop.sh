@@ -1,5 +1,8 @@
 #!/bin/sh
 
+XRAY_FOLDER=/share/Docker/$APKG_PKG_NAME
+LOGGING=$XRAY_FOLDER/log.txt
+
 echo "start-stop"
 
 printf "start\n" >> $LOGGING
