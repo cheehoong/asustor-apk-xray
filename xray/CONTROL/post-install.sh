@@ -8,6 +8,9 @@ LOGGING=$XRAY_FOLDER/log.txt
 RVMHTTP="https://www.uuidgenerator.net/api/version1"
 CURLARGS="-s"
 
+docker pull teddysun/xray:latest
+printf "Completed docker pull\n" >> $LOGGING
+
 # you can store the result in a variable
 UUID="$(curl $CURLARGS $RVMHTTP)"
 
@@ -62,6 +65,16 @@ EOF
 esac
     printf "docker-compose\n" >> $LOGGING
 docker-compose up -d >> $LOGGING
+#docker run -d -p 9000:9000 --name xray --restart=always -v /etc/xray:/etc/xray teddysun/xray
+#docker start Xray
     printf "End case\n" >> $LOGGING
+
+#Always check if there is any images tag with none, and remove it.
+oldim=$(docker images | grep teddysun/xray | grep none | awk '{print $3}')
+echo $oldim
+
+if [ ! -z $oldim ]; then
+	docker rmi -f $oldim
+fi
 
 exit 0

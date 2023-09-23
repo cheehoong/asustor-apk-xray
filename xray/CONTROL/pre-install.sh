@@ -8,6 +8,8 @@ if [ ! -d "$XRAY_FOLDER" ]; then
 	mkdir "$XRAY_FOLDER"
 fi
 
+docker pull teddysun/xray:latest
+
 case "$APKG_PKG_STATUS" in
 
 	install)
