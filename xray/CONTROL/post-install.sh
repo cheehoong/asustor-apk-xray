@@ -25,6 +25,12 @@ case "$APKG_PKG_STATUS" in
 	install)
 	  printf "Start install\n" >> $LOGGING
 		# post install script here
+
+		# Make sure configuration directory exists
+    FILE=$XRAY_FOLDER/config.json
+    if test -f "$FILE"; then
+      printf "$FILE exists." >> $LOGGING
+    else
 		printf "Start cat\n" >> $LOGGING
 		cat > $XRAY_FOLDER/config.json <<EOF
     {
@@ -45,8 +51,7 @@ case "$APKG_PKG_STATUS" in
       }]
     }
 EOF
-
- 		docker-compose up -d
+	  fi
 		;;
 	upgrade)
 		# post upgrade script here (restore data)
@@ -55,6 +60,8 @@ EOF
 	*)
 		;;
 esac
+    printf "docker-compose\n" >> $LOGGING
+docker-compose up -d >> $LOGGING
     printf "End case\n" >> $LOGGING
 
 exit 0
