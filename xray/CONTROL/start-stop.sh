@@ -6,14 +6,14 @@ LOGGING=$XRAY_FOLDER/log.txt
 echo "start-stop"
 
 printf "start\n" >> $LOGGING
-CONTAINER_NAME=Xray >> $LOGGING
+CONTAINER_NAME=Xray
 printf "Container running\n" >> $LOGGING
 printf "$1\n" >> $LOGGING
 
 case "$1" in
     start)
         echo "Start $CONTAINER_NAME container..."
-		docker start $CONTAINER_NAME
+		docker start $CONTAINER_NAME  >> $LOGGING
         sleep 6 
                         
         ;;
