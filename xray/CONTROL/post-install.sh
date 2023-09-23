@@ -36,23 +36,23 @@ case "$APKG_PKG_STATUS" in
     else
       printf "Start cat create config.json\n" >> $LOGGING
       cat > $XRAY_FOLDER/config.json <<EOF
-      {
-        "inbounds": [{'
-          "port": 9000,
-          "protocol": "vmess",
-          "settings": {
-            "clients": [
-              {
-                "id": $UUID
-              }
-            ]
-          }
-        }],
-        "outbounds": [{
-          "protocol": "freedom",
-          "settings": {}
-        }]
-      }
+{
+  "inbounds": [{'
+    "port": 9000,
+    "protocol": "vmess",
+    "settings": {
+      "clients": [
+        {
+          "id": $UUID
+        }
+      ]
+    }
+  }],
+  "outbounds": [{
+    "protocol": "freedom",
+    "settings": {}
+  }]
+}
 EOF
 	  fi
 		;;
