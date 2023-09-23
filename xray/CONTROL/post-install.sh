@@ -65,9 +65,9 @@ EOF
 esac
 
 printf "docker-compose\n" >> $LOGGING
-docker-compose up -d
-#docker run -d -p 9000:9000 --name xray --restart=always -v /share/Docker/xray-docker:/etc/xray teddysun/xray
-#docker start xray
+#docker-compose up -d
+docker run -d -p 9000:9000 --name xray --restart=always -v /share/Docker/xray-docker:/etc/xray teddysun/xray
+docker start xray
 printf "End case\n" >> $LOGGING
 
 #Always check if there is any images tag with none, and remove it.
