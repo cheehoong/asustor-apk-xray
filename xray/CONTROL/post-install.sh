@@ -32,7 +32,7 @@ case "$APKG_PKG_STATUS" in
 		# Make sure configuration directory exists
     FILE=$XRAY_FOLDER/config.json
     if test -f "$FILE"; then
-      printf "$FILE exists." >> $LOGGING
+      printf "$FILE exists.\n" >> $LOGGING
     else
       printf "Start cat create config.json\n" >> $LOGGING
       cat > $XRAY_FOLDER/config.json <<EOF
@@ -63,11 +63,12 @@ EOF
 	*)
 		;;
 esac
-    printf "docker-compose\n" >> $LOGGING
+
+printf "docker-compose\n" >> $LOGGING
 docker-compose up -d
-#docker run -d -p 9000:9000 --name xray --restart=always -v /etc/xray:/etc/xray teddysun/xray
-#docker start Xray
-    printf "End case\n" >> $LOGGING
+#docker run -d -p 9000:9000 --name xray --restart=always -v /share/Docker/xray-docker:/etc/xray teddysun/xray
+#docker start xray
+printf "End case\n" >> $LOGGING
 
 #Always check if there is any images tag with none, and remove it.
 oldim=$(docker images | grep teddysun/xray | grep none | awk '{print $3}')
