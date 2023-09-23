@@ -1,8 +1,8 @@
 #!/bin/sh
-
 APKG_PKG_DIR=/usr/local/AppCentral/xray-docker
 XRAY_FOLDER=/share/Docker/$APKG_PKG_NAME
 LOGGING=$XRAY_FOLDER/log.txt
+printf "---pre-install---\n" >> $LOGGING
 
 if [ ! -d "$XRAY_FOLDER" ]; then
 	mkdir "$XRAY_FOLDER"

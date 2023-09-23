@@ -1,12 +1,12 @@
 #!/bin/sh
 
-WEB_PORT=9000
 APKG_PKG_DIR=/usr/local/AppCentral/xray-docker
 XRAY_FOLDER=/share/Docker/$APKG_PKG_NAME
 LOGGING=$XRAY_FOLDER/log.txt
 #CURL='/usr/bin/curl'
 RVMHTTP="https://www.uuidgenerator.net/api/version1"
 CURLARGS="-s"
+printf "---post-install---\n" >> $LOGGING
 
 docker pull teddysun/xray:latest
 printf "Completed docker pull\n" >> $LOGGING

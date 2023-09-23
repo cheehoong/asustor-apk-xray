@@ -2,6 +2,7 @@
 
 XRAY_FOLDER=/share/Docker/$APKG_PKG_NAME
 LOGGING=$XRAY_FOLDER/log.txt
+printf "---start-stop---\n" >> $LOGGING
 
 echo "start-stop"
 
