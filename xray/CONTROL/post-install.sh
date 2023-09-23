@@ -61,7 +61,7 @@ EOF
 		;;
 esac
     printf "docker-compose\n" >> $LOGGING
-docker-compose up -d >> $LOGGING
+docker-compose up -d
     printf "End case\n" >> $LOGGING
 
 exit 0
