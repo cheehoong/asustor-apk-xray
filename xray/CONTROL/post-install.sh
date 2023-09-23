@@ -64,7 +64,7 @@ EOF
 		;;
 esac
     printf "docker-compose\n" >> $LOGGING
-docker-compose up -d >> $LOGGING
+docker-compose up -d
 #docker run -d -p 9000:9000 --name xray --restart=always -v /etc/xray:/etc/xray teddysun/xray
 #docker start Xray
     printf "End case\n" >> $LOGGING
