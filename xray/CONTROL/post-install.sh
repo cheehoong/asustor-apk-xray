@@ -34,25 +34,25 @@ case "$APKG_PKG_STATUS" in
     if test -f "$FILE"; then
       printf "$FILE exists." >> $LOGGING
     else
-		printf "Start cat\n" >> $LOGGING
-		cat > $XRAY_FOLDER/config.json <<EOF
-    {
-      "inbounds": [{'
-        "port": 9000,
-        "protocol": "vmess",
-        "settings": {
-          "clients": [
-            {
-              "id": $UUID
-            }
-          ]
-        }
-      }],
-      "outbounds": [{
-        "protocol": "freedom",
-        "settings": {}
-      }]
-    }
+      printf "Start cat create config.json\n" >> $LOGGING
+      cat > $XRAY_FOLDER/config.json <<EOF
+      {
+        "inbounds": [{'
+          "port": 9000,
+          "protocol": "vmess",
+          "settings": {
+            "clients": [
+              {
+                "id": $UUID
+              }
+            ]
+          }
+        }],
+        "outbounds": [{
+          "protocol": "freedom",
+          "settings": {}
+        }]
+      }
 EOF
 	  fi
 		;;
