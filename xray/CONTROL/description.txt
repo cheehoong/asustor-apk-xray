@@ -1,8 +1,13 @@
 Project X or Xray-core is a superset of v2ray-core, with better overall performance and enhancements such as XTLS, and it'scompletelycompatible with v2ray-core functionality and configuration. Only one executable file, including ctl functionality, run is the default command.
 
-REMEMBER !!! to forward your router port 9000 => your Asustor ip address and port 9000.
+REMEMBER !!! to forward your router port 9000 => your Asustor ip address with port 9000.
 
 Notes:
 1. The docker version is maintained by Docker Xray [@dockerhub](https://hub.docker.com/r/teddysun/xray).
 2. Best use with [v2rayNG](https://play.google.com/store/apps/details?id=com.v2ray.ang&hl=en_US) client.
 3. IOS never tested.
+
+Config Client:
+1. Download client.
+2. ID can be found at /share/Docker/xray-docker/config.json
+3. make sure you forward your router port 9000 => your Asustor ip address with port 9000.
