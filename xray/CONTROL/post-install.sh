@@ -3,15 +3,14 @@
 APKG_PKG_DIR=/usr/local/AppCentral/xray-docker
 XRAY_FOLDER=/share/Docker/$APKG_PKG_NAME
 LOGGING=$XRAY_FOLDER/log.txt
-#CURL='/usr/bin/curl'
-RVMHTTP="https://www.uuidgenerator.net/api/version1"
-CURLARGS="-s"
 printf "---post-install---\n" >> $LOGGING
 
 docker pull teddysun/xray:latest
 printf "Completed docker pull\n" >> $LOGGING
 
-# you can store the result in a variable
+# generate UUID
+RVMHTTP="https://www.uuidgenerator.net/api/version1"
+CURLARGS="-s"
 UUID="$(curl $CURLARGS $RVMHTTP)"
 
 printf "UUID\n" >> $LOGGING
@@ -29,7 +28,7 @@ case "$APKG_PKG_STATUS" in
 	  printf "Start install\n" >> $LOGGING
 		# post install script here
 
-		# Make sure configuration directory exists
+		# Make sure configuration file exists
     FILE=$XRAY_FOLDER/config.json
     if test -f "$FILE"; then
       printf "$FILE exists.\n" >> $LOGGING
@@ -64,11 +63,11 @@ EOF
 		;;
 esac
 
-printf "docker-compose\n" >> $LOGGING
+printf "run docker\n" >> $LOGGING
 #docker-compose up -d
 docker run -d -p 9000:9000 --name xray --restart=always -v /share/Docker/xray-docker:/etc/xray teddysun/xray
 docker start xray
-printf "End case\n" >> $LOGGING
+printf "End case\n\n" >> $LOGGING
 
 #Always check if there is any images tag with none, and remove it.
 oldim=$(docker images | grep teddysun/xray | grep none | awk '{print $3}')

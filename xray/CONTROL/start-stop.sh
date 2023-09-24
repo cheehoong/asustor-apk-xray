@@ -13,10 +13,9 @@ printf "$1\n" >> $LOGGING
 
 case "$1" in
     start)
-        echo "Start $CONTAINER_NAME container..."
-		docker start $CONTAINER_NAME  >> $LOGGING
-        sleep 6 
-                        
+      echo "Start $CONTAINER_NAME container..."
+		  docker start $CONTAINER_NAME
+      sleep 6
         ;;
     stop)
     	echo "Stop $CONTAINER_NAME container..."
@@ -35,4 +34,5 @@ case "$1" in
         exit 1
         ;;
 esac
+printf "\n" >> $LOGGING
 exit 0
