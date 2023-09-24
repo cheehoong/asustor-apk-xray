@@ -15,7 +15,6 @@ This website is mainly about building apk for V2Ray docker to run in Asustor.
 
 ## Config client
 - https://xtls.github.io/en/config/outbounds/vmess.html#outboundconfigurationobject
-- https://github.com/cheehoong/asustor-apk-xray
 
 ## Links
 * Docker Xray [@dockerhub](https://hub.docker.com/r/teddysun/xray) [@github](https://github.com/teddysun/across)
